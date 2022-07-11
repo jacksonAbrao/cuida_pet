@@ -14,7 +14,7 @@ class _LoginFormState extends State<_LoginForm> {
       child: Column(
         children: [
           CuidapetTextFormField(
-            label: 'Login',
+            label: 'E-mail',
           ),
           const SizedBox(
             height: 20,
