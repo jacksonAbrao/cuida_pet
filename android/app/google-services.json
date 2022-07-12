@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1010964381223",
+    "project_id": "cuidapet-cp",
+    "storage_bucket": "cuidapet-cp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1010964381223:android:26634de70d16be46dd5802",
+        "android_client_info": {
+          "package_name": "com.example.cuida_pet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1010964381223-571ajppiqiv97h2j7gad4ba4s21aijnj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOzw-thmsK4awSJE7xD3CLFQ5vHcQGyUU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1010964381223-571ajppiqiv97h2j7gad4ba4s21aijnj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
