@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1010964381223-n3a234prrnpela2g1e576per44rv1b20.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cuida_pet",
+            "certificate_hash": "3add267df425386996514dcef1b28a6b5bf4299f"
+          }
+        },
+        {
           "client_id": "1010964381223-571ajppiqiv97h2j7gad4ba4s21aijnj.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "1010964381223-571ajppiqiv97h2j7gad4ba4s21aijnj.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1010964381223-s4bcipf6mr00tcv4rh7u8l208c0rpfk0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cuidaPet"
+              }
             }
           ]
         }
