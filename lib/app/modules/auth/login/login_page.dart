@@ -1,3 +1,4 @@
+import 'package:cuida_pet/app/core/helpers/environments.dart';
 import 'package:cuida_pet/app/core/ui/extentions/size_screen_extention.dart';
 import 'package:cuida_pet/app/core/ui/extentions/theme_extension.dart';
 import 'package:cuida_pet/app/core/ui/icons/cuida_pet_icons.dart';
@@ -23,6 +24,7 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: 50.h,
               ),
+              Text(Environments.param('base_url') ?? ''),
               Center(
                 child: Image.asset(
                   'assets/images/logo.png',
