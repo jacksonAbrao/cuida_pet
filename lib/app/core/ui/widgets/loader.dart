@@ -14,7 +14,7 @@ class Loader {
         return Container(
           color: Colors.black54,
           child: Center(
-            child: CircularProgressIndicator.adaptive(
+            child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(context.primaryColor),
             ),
           ),
