@@ -31,7 +31,7 @@ class UserRepositoryImpl implements UserRepository {
       }
 
       _log.error('Erro ao cadastrar usuário', e, s);
-      throw Failure('Erro ao registrar usuário');
+      throw Failure(message: 'Erro ao registrar usuário');
     }
   }
 }

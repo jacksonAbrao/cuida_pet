@@ -34,7 +34,7 @@ class UserServiceImpl implements UserService {
       await userRegisterCredential.user?.sendEmailVerification();
     } on FirebaseException catch (e, s) {
       _log.error('Erro ao criar usuário no firebase', e, s);
-      throw Failure('Erro ao criar usuário');
+      throw Failure(message: 'Erro ao criar usuário');
     }
   }
 }
