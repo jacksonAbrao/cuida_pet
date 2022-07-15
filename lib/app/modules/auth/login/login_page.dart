@@ -3,8 +3,6 @@ import 'package:cuida_pet/app/core/ui/extentions/theme_extension.dart';
 import 'package:cuida_pet/app/core/ui/icons/cuida_pet_icons.dart';
 import 'package:cuida_pet/app/core/ui/widgets/cuidapet_default_button.dart';
 import 'package:cuida_pet/app/core/ui/widgets/cuidapet_textform_field.dart';
-import 'package:cuida_pet/app/core/ui/widgets/loader.dart';
-import 'package:cuida_pet/app/core/ui/widgets/messages.dart';
 import 'package:cuida_pet/app/core/ui/widgets/rounded_button_with_icon.dart';
 import 'package:cuida_pet/app/modules/auth/login/login_controller.dart';
 import 'package:flutter/material.dart';

@@ -1,6 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:developer';
-
 import 'package:cuida_pet/app/core/exeptions/failure.dart';
 import 'package:cuida_pet/app/core/exeptions/user_not_exists_exception.dart';
 import 'package:cuida_pet/app/core/ui/widgets/loader.dart';
@@ -35,7 +32,7 @@ abstract class _LoginControllerBase with Store {
       Messages.alert(errorMessage);
     } on UserNotExistsException catch (e, s) {
       const errorMessage = 'Usuário não encontrado';
-      _log.error(errorMessage);
+      _log.error(errorMessage, e, s);
       Loader.hide();
       Messages.alert(errorMessage);
     }

@@ -4,7 +4,6 @@ import 'package:cuida_pet/app/core/exeptions/user_not_exists_exception.dart';
 import 'package:cuida_pet/app/core/loggger/app_logger.dart';
 import 'package:cuida_pet/app/repositories/user/user_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 import './user_service.dart';
 
