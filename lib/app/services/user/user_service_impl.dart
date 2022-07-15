@@ -51,12 +51,12 @@ class UserServiceImpl implements UserService {
       }
 
       if (loginMethods.contains('password')) {
-        final UserCredential = await firebaseAuth.signInWithEmailAndPassword(
+        final userCredential = await firebaseAuth.signInWithEmailAndPassword(
             email: email, password: password);
 
-        final userVerified = UserCredential.user?.emailVerified ?? false;
+        final userVerified = userCredential.user?.emailVerified ?? false;
         if (!userVerified) {
-          UserCredential.user?.sendEmailVerification();
+          userCredential.user?.sendEmailVerification();
           throw Failure(
               message:
                   'E-mail não veríficado, por favor verifique sua caixa de spam');
