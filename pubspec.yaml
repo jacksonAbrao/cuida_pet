@@ -63,11 +63,19 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   mobx_codegen: ^2.0.5+2
   build_runner: ^2.1.8
+  flutter_launcher_icons: ^0.9.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/icon.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/images/1024.png"
+
 flutter:
 
   # The following line ensures that the Material Icons font is
