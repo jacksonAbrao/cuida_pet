@@ -7,6 +7,7 @@ import 'package:cuida_pet/app/core/ui/widgets/loader.dart';
 import 'package:cuida_pet/app/core/ui/widgets/messages.dart';
 import 'package:cuida_pet/app/core/ui/widgets/rounded_button_with_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:validatorless/validatorless.dart';
 
 part 'widgets/login_form.dart';
 part 'widgets/login_register_buttons.dart';
