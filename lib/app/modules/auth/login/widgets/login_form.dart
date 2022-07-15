@@ -7,7 +7,7 @@ class _LoginForm extends StatefulWidget {
   State<_LoginForm> createState() => _LoginFormState();
 }
 
-class _LoginFormState extends State<_LoginForm> {
+class _LoginFormState extends ModularState<_LoginForm, LoginController> {
   final _formKey = GlobalKey<FormState>();
   final _loginEC = TextEditingController();
   final _passwordEC = TextEditingController();
@@ -49,9 +49,11 @@ class _LoginFormState extends State<_LoginForm> {
             height: 20,
           ),
           CuidapetDefaultButton(
-            onPressed: () {
+            onPressed: () async {
               final formValid = _formKey.currentState?.validate() ?? false;
-              if (formValid) {}
+              if (formValid) {
+                await controller.login(_loginEC.text, _passwordEC.text);
+              }
             },
             label: 'Entrar',
           ),
