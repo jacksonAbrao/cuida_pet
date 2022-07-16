@@ -6,6 +6,8 @@ class Constants {
   static const REST_CLIENT_RECEIVE_TIMEOUT_KEY = 'rest_client_receive_imeout';
   static const LOCAL_STORAGE_ACCESS_TOKEN_KEY =
       '/LOCAL_STORAGE_ACCESS_TOKEN_KEY/';
+  static const LOCAL_STORAGE_REFRESH_TOKEN_KEY =
+      '/LOCAL_STORAGE_REFRESH_TOKEN_KEY/';
 
   static const AUTH_REQUIRED = 'auth_required';
 }
