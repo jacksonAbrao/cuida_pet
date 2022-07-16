@@ -7,13 +7,17 @@ class CuidapetTextFormField extends StatelessWidget {
   final String label;
   final bool obscureText;
   final ValueNotifier<bool> _obscureTextVN;
+  final TextInputAction? textInputAction;
+  final Future<void> Function(dynamic)? onFieldSubmitted;
 
   CuidapetTextFormField(
       {Key? key,
       required this.label,
       this.obscureText = false,
       this.controller,
-      this.validator})
+      this.validator,
+      this.textInputAction = TextInputAction.done,
+      this.onFieldSubmitted})
       : _obscureTextVN = ValueNotifier<bool>(obscureText),
         super(key: key);
 
@@ -25,7 +29,9 @@ class CuidapetTextFormField extends StatelessWidget {
           return TextFormField(
             controller: controller,
             obscureText: obscureTextVNValue,
+            textInputAction: textInputAction,
             validator: validator,
+            onFieldSubmitted: onFieldSubmitted,
             decoration: InputDecoration(
               labelText: label,
               labelStyle: const TextStyle(

@@ -32,6 +32,7 @@ class _LoginFormState extends ModularState<_LoginForm, LoginController> {
               Validatorless.required('E-mail obrigatório'),
               Validatorless.email('E-mail inválido'),
             ]),
+            textInputAction: TextInputAction.next,
           ),
           const SizedBox(
             height: 20,
@@ -44,6 +45,13 @@ class _LoginFormState extends ModularState<_LoginForm, LoginController> {
               Validatorless.required('Senha obrigatória'),
               Validatorless.min(6, 'Senha deve conter pelo menos 6 caracteres'),
             ]),
+            textInputAction: TextInputAction.done,
+            onFieldSubmitted: (value) async {
+              final formValid = _formKey.currentState?.validate() ?? false;
+              if (formValid) {
+                await controller.login(_loginEC.text, _passwordEC.text);
+              }
+            },
           ),
           const SizedBox(
             height: 20,
