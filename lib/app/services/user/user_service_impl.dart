@@ -5,6 +5,7 @@ import 'package:cuida_pet/app/core/helpers/constants.dart';
 import 'package:cuida_pet/app/core/local_storage/local_storage.dart';
 import 'package:cuida_pet/app/core/loggger/app_logger.dart';
 import 'package:cuida_pet/app/models/confirm_login_model.dart';
+import 'package:cuida_pet/app/models/user_model.dart';
 import 'package:cuida_pet/app/repositories/user/user_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -73,6 +74,7 @@ class UserServiceImpl implements UserService {
         final accessToken = await _userRepository.login(email, password);
         await _saveAccessToken(accessToken);
         await _confirmLogin();
+        await _getUserData();
       } else {
         throw Failure(message: 'Login não encontrado');
       }
@@ -91,5 +93,11 @@ class UserServiceImpl implements UserService {
     await _saveAccessToken(confirmLoginModel.accessToken);
     await _localSecureStorage.write(Constants.LOCAL_STORAGE_REFRESH_TOKEN_KEY,
         confirmLoginModel.refreshToken);
+  }
+
+  Future<void> _getUserData() async {
+    final userModel = await _userRepository.getUserLogged();
+    await _localStorage.write<String>(
+        Constants.LOCAL_STORAGE_USER_LOGGED_DATA, userModel.toJson());
   }
 }

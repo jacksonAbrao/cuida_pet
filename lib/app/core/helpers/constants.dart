@@ -8,6 +8,7 @@ class Constants {
       '/LOCAL_STORAGE_ACCESS_TOKEN_KEY/';
   static const LOCAL_STORAGE_REFRESH_TOKEN_KEY =
       '/LOCAL_STORAGE_REFRESH_TOKEN_KEY/';
-
+  static const LOCAL_STORAGE_USER_LOGGED_DATA =
+      '/LOCAL_STORAGE_USER_LOGGED_DATA/';
   static const AUTH_REQUIRED = 'auth_required';
 }
