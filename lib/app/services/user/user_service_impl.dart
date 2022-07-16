@@ -1,6 +1,8 @@
 import 'package:cuida_pet/app/core/exeptions/failure.dart';
 import 'package:cuida_pet/app/core/exeptions/user_exists_exception.dart';
 import 'package:cuida_pet/app/core/exeptions/user_not_exists_exception.dart';
+import 'package:cuida_pet/app/core/helpers/constants.dart';
+import 'package:cuida_pet/app/core/local_storage/local_storage.dart';
 import 'package:cuida_pet/app/core/loggger/app_logger.dart';
 import 'package:cuida_pet/app/repositories/user/user_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,12 +12,15 @@ import './user_service.dart';
 class UserServiceImpl implements UserService {
   final UserRepository _userRepository;
   final AppLogger _log;
+  final LocalStorage _localStorage;
 
   UserServiceImpl({
     required UserRepository userRepository,
     required AppLogger log,
+    required LocalStorage localStorage,
   })  : _userRepository = userRepository,
-        _log = log;
+        _log = log,
+        _localStorage = localStorage;
 
   @override
   Future<void> register(String email, String password) async {
@@ -60,8 +65,9 @@ class UserServiceImpl implements UserService {
               message:
                   'E-mail não veríficado, por favor verifique sua caixa de spam');
         }
-        // se a senha incorreta
 
+        final accessToken = await _userRepository.login(email, password);
+        await _saveAccessToken(accessToken);
       } else {
         throw Failure(message: 'Login não encontrado');
       }
@@ -71,4 +77,7 @@ class UserServiceImpl implements UserService {
       throw Failure(message: errorMessage);
     }
   }
+
+  Future<void> _saveAccessToken(String accessToken) => _localStorage.write(
+      Constants.LOCAL_STORAGE_ACCESS_TOKEN_KEY, accessToken);
 }

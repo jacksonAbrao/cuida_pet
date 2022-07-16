@@ -1,5 +1,8 @@
 import 'package:cuida_pet/app/core/helpers/constants.dart';
 import 'package:cuida_pet/app/core/helpers/environments.dart';
+import 'package:cuida_pet/app/core/local_storage/local_storage.dart';
+import 'package:cuida_pet/app/core/loggger/app_logger.dart';
+import 'package:cuida_pet/app/core/rest_client/dio/interceptos/auth_interceptor.dart';
 import 'package:cuida_pet/app/core/rest_client/rest_client.dart';
 import 'package:cuida_pet/app/core/rest_client/rest_client_exception.dart';
 import 'package:cuida_pet/app/core/rest_client/rest_client_response.dart';
@@ -17,20 +20,26 @@ class DioRestClient implements RestClient {
   );
 
   DioRestClient({
+    required LocalStorage localStorage,
+    required AppLogger log,
     BaseOptions? baseOptions,
   }) {
     _dio = Dio(baseOptions ?? _defaulOptions);
+    _dio.interceptors.addAll([
+      AuthInterceptor(localStorage: localStorage, logger: log),
+      LogInterceptor(requestBody: true, responseBody: true)
+    ]);
   }
 
   @override
   RestClient auth() {
-    _defaulOptions.extra['auth_required'] = true;
+    _defaulOptions.extra[Constants.AUTH_REQUIRED] = true;
     return this;
   }
 
   @override
   RestClient unauth() {
-    _defaulOptions.extra['auth_required'] = false;
+    _defaulOptions.extra[Constants.AUTH_REQUIRED] = false;
     return this;
   }
 
