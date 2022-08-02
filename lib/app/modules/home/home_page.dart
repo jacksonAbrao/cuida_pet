@@ -1,8 +1,12 @@
+import 'package:cuida_pet/app/modules/core/auth/auth_store.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final AuthStore _authStore;
+  const HomePage({Key? key, required AuthStore authStore})
+      : _authStore = authStore,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,7 @@ class HomePage extends StatelessWidget {
         child: TextButton(
           child: const Text('Loggout'),
           onPressed: () {
-            FirebaseAuth.instance.signOut();
+            _authStore.logout();
           },
         ),
       ),
