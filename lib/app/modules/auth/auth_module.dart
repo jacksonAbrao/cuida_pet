@@ -3,6 +3,8 @@ import 'package:cuida_pet/app/modules/auth/login/login_module.dart';
 import 'package:cuida_pet/app/modules/auth/register/register_module.dart';
 import 'package:cuida_pet/app/repositories/user/user_repository.dart';
 import 'package:cuida_pet/app/repositories/user/user_repository_impl.dart';
+import 'package:cuida_pet/app/services/social/social_repository.dart';
+import 'package:cuida_pet/app/services/social/social_repository_impl.dart';
 import 'package:cuida_pet/app/services/user/user_service.dart';
 import 'package:cuida_pet/app/services/user/user_service_impl.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -10,6 +12,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 class AuthModule extends Module {
   @override
   final List<Bind> binds = [
+    Bind.lazySingleton<SocialRepository>((i) => SocialRepositoryImpl()),
     Bind.lazySingleton<UserRepository>((i) => UserRepositoryImpl(
           log: i(), //CoreModule
           restClient: i(), //CoreModule
@@ -19,6 +22,7 @@ class AuthModule extends Module {
           userRepository: i(), // AuthModule
           localStorage: i(), // CoreModule
           localSecureStorage: i(), // CoreModule
+          socialRepository: i(), // CoreModule
         )),
   ];
 
