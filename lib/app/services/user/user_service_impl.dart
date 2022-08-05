@@ -6,7 +6,6 @@ import 'package:cuida_pet/app/core/local_storage/local_storage.dart';
 import 'package:cuida_pet/app/core/loggger/app_logger.dart';
 import 'package:cuida_pet/app/models/social_login_type.dart';
 import 'package:cuida_pet/app/models/social_network_model.dart';
-import 'package:cuida_pet/app/modules/auth/login/login_module.dart';
 import 'package:cuida_pet/app/repositories/user/user_repository.dart';
 import 'package:cuida_pet/app/repositories/social/social_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -115,7 +114,9 @@ class UserServiceImpl implements UserService {
 
       switch (socialLoginType) {
         case SocialLoginType.facebook:
-          throw Failure(message: 'Facebook not implemented');
+          socialModel = await _socialRepository.FacebookLogin();
+          authCredential =
+              FacebookAuthProvider.credential(socialModel.accessToken);
           break;
         case SocialLoginType.google:
           socialModel = await _socialRepository.googleLogin();
